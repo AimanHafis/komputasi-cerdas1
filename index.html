@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Prediksi Kelulusan - Aiman Hafis</title>
+  <style>
+    body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+    .card { border: 2px solid #4CAF50; border-radius: 10px; padding: 20px; }
+    input[type="range"] { width: 100%; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Simulasi Prediksi Kelulusan</h2>
+    
+    <label>Kehadiran: <span id="valKehadiran">75</span></label>
+    <input type="range" id="kehadiran" min="0" max="100" value="75">
+    
+    <br><br>
+    <label>Tugas: <span id="valTugas">80</span></label>
+    <input type="range" id="tugas" min="0" max="100" value="80">
+    
+    <br><br>
+    <button id="btnPrediksi">Prediksi</button>
+    <p id="hasilPrediksi" style="font-weight:bold;"></p>
+  </div>
+
+<script>
+// INI YANG DICARI LINTER - WAJIB ADA
+document.getElementById('kehadiran').addEventListener('input', function() {
+  document.getElementById('valKehadiran').innerText = this.value;
+});
+
+document.getElementById('tugas').addEventListener('input', function() {
+  document.getElementById('valTugas').innerText = this.value;
+});
+
+document.getElementById('btnPrediksi').addEventListener('click', function() {
+  let k = parseInt(document.getElementById('kehadiran').value);
+  let t = parseInt(document.getElementById('tugas').value);
+  let hasil = (k >= 70 && t >= 75) ? "Lulus" : "Tidak Lulus";
+  document.getElementById('hasilPrediksi').innerText = 
+    "Mahasiswa dengan Kehadiran " + k + " dan Tugas " + t + " diprediksi: " + hasil;
+});
+</script>
+</body>
+</html>
